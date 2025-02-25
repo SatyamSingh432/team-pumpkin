@@ -10,3 +10,8 @@
   height: 100%;
   background-color: #ffffff;
 }
+
+.chat-page-child-container {
+  display: flex;
+  height: 100%;
+}
