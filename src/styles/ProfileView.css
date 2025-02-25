@@ -1,0 +1,53 @@
+.profile-view-container {
+  width: 20%;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  border-left: 1px solid rgba(217, 220, 224, 1);
+  position: relative;
+}
+
+.profile-view-icon {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(110, 128, 164, 1);
+  border-radius: 50%;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+
+.profile-view-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.cross-icon {
+  position: absolute;
+  top: 20px;
+  left: 18px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.profile-view-no {
+  font-size: 12px;
+  color: rgba(112, 121, 145, 1);
+}
+
+.profile-view-email {
+  font-size: 12px;
+
+  color: rgba(112, 121, 145, 1);
+}
+
+.line {
+  border: 1px solid rgba(112, 121, 145, 0.285);
+  width: 100%;
+}

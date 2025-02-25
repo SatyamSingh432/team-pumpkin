@@ -1,5 +1,6 @@
 import SideBar from "../Layouts/SideBar";
 import ChatSection from "../Layouts/ChatSection";
+import ProfileView from "../Layouts/ProfileView";
 
 import "../styles/ChatPage.css";
 const ChatPage = () => {
@@ -8,6 +9,7 @@ const ChatPage = () => {
       <div className="chat-page-child-container">
         <SideBar />
         <ChatSection />
+        <ProfileView />
       </div>
     </div>
   );
