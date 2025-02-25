@@ -1,0 +1,50 @@
+.side-bar {
+  width: 30%;
+  height: 100%;
+  border-right: 1px solid rgba(217, 220, 224, 1);
+}
+
+.sidebar-input-container {
+  position: relative;
+}
+
+.sidebar-header-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 1rem;
+}
+
+.react-icon-search {
+  font-weight: 700;
+  font-size: 16px;
+  color: rgba(112, 121, 145, 1);
+}
+
+.sidebar-header-icon {
+  width: 100px;
+  height: 40px;
+}
+
+.sidebar-header-icon img {
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar-input {
+  padding: 0.4rem 2rem;
+  border-radius: 20px;
+  border: none;
+  width: 100%;
+  background-color: rgba(245, 245, 245, 1);
+}
+
+.react-icon-search {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+}
+
+.sidebar-second-container {
+  width: 100%;
+}

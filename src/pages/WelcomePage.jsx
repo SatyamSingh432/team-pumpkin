@@ -1,8 +1,10 @@
-import "../styles/WelcomePage.css";
 import InputBox from "../components/InputBox";
+import Button from "../components/Butoon";
+
 import logo from "../assets/image66.png";
 import logo2 from "../assets/DottedShape.png";
-import Button from "../components/Butoon";
+
+import "../styles/WelcomePage.css";
 
 const WelcomePage = () => {
   const inputFields = [
