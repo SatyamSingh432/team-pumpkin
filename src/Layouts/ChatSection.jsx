@@ -1,12 +1,36 @@
+/* eslint-disable react/prop-types */
 import { IoSend } from "react-icons/io5";
 
 import "../styles/ChatSection.css";
-const ChatSection = () => {
+const ChatSection = ({ individualData, setShowProfile }) => {
+  console.log(individualData);
+  const iconName = (data) => {
+    let arr = data.split(" ");
+    let newArr = new Array(2);
+    for (let ele of arr) {
+      newArr.push(ele[0]);
+    }
+    return newArr.join("");
+  };
   return (
     <div className="chat-sec-container">
       <nav className="chat-sec-nav">
-        <div className="chat-sec-nav-icon">DM</div>
-        <p className="chat-sec-nav-name">David Moore</p>
+        <div
+          className="chat-sec-nav-icon"
+          onClick={() => {
+            setShowProfile(true);
+          }}
+        >
+          {iconName(individualData.name)}
+        </div>
+        <p
+          className="chat-sec-nav-name"
+          onClick={() => {
+            setShowProfile(true);
+          }}
+        >
+          {individualData.name}
+        </p>
       </nav>
       <main className="msg-container">
         {/* ------------------------------------- */}
@@ -15,11 +39,8 @@ const ChatSection = () => {
 
           <div className="message-container left">
             <div className="message-box">
-              <p className="msg-content">
-                OMG do you remember what you did last night at the work night
-                out?
-              </p>
-              <span className="message-time">8:12 am</span>
+              <p className="msg-content">{individualData.message}</p>
+              <span className="message-time">{individualData.time}</span>
             </div>
           </div>
 

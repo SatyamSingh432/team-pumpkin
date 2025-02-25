@@ -1,6 +1,12 @@
 /* eslint-disable react/prop-types */
 import "../styles/ChatBar.css";
-const ChatBar = ({ chatName, chatTime, chatMsg }) => {
+const ChatBar = ({
+  chatName,
+  chatTime,
+  chatMsg,
+  fullData,
+  setIndividualData,
+}) => {
   const iconName = (data) => {
     let arr = data.split(" ");
     let newArr = new Array(2);
@@ -10,7 +16,12 @@ const ChatBar = ({ chatName, chatTime, chatMsg }) => {
     return newArr.join("");
   };
   return (
-    <div className="chatbar-container">
+    <div
+      className="chatbar-container"
+      onClick={() => {
+        setIndividualData(fullData);
+      }}
+    >
       <div className="chatbar-icon">{iconName(chatName)}</div>
       <div className="chatbar-info">
         <div className="chatbar-name-time">
