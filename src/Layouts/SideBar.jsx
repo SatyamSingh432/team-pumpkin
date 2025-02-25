@@ -32,8 +32,8 @@ const SideBar = ({ peopleData, setIndividualData }) => {
               className="chatbar-hover"
               key={data.id}
               chatName={data.name}
-              chatMsg={data.message}
-              chatTime={data.time}
+              chatMsg={data.messages[0].message}
+              chatTime={data.messages[0].time}
               fullData={data}
             />
           );

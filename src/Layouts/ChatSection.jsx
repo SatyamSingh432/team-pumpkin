@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 import { IoSend } from "react-icons/io5";
+// import { useState } from "react";
 
 import "../styles/ChatSection.css";
 const ChatSection = ({ individualData, setShowProfile }) => {
-  console.log(individualData);
+  // const [msgSend, setMsgSend] = useState([]);
+  // const [msg, setMsg] = useState("");
   const iconName = (data) => {
     let arr = data.split(" ");
     let newArr = new Array(2);
@@ -12,6 +14,10 @@ const ChatSection = ({ individualData, setShowProfile }) => {
     }
     return newArr.join("");
   };
+  // const changeHandler = (e) => {
+  //   setMsg(e.target.value);
+  //   // console.log(e.target.value);
+  // };
   return (
     <div className="chat-sec-container">
       <nav className="chat-sec-nav">
@@ -39,28 +45,45 @@ const ChatSection = ({ individualData, setShowProfile }) => {
 
           <div className="message-container left">
             <div className="message-box">
-              <p className="msg-content">{individualData.message}</p>
-              <span className="message-time">{individualData.time}</span>
+              <p className="msg-content">
+                {individualData.messages[0].message}
+              </p>
+              <span className="message-time">
+                {individualData.messages[0].time}
+              </span>
             </div>
           </div>
 
           <div className="message-container right">
             <div className="message-box sender">
-              <p className="msg-content">no haha</p>
-              <span className="message-time">18:16</span>
+              <p className="msg-content">
+                {individualData.messages[1].message}
+              </p>
+              <span className="message-time">
+                {individualData.messages[1].time}
+              </span>
             </div>
           </div>
-
-          <div className="message-container right">
-            <div className="message-box sender">
-              <p className="msg-content">i don&lsquo;t remember anything</p>
-              <span className="message-time">18:16</span>
-            </div>
-          </div>
+          {/* {msgSend.map((data, index) => {
+            return (
+              <div key={index} className="message-container right">
+                <div className="message-box sender">
+                  <p className="msg-content">{data.message}</p>
+                  <span className="message-time">{data.time}</span>
+                </div>
+              </div>
+            );
+          })} */}
         </div>
         {/* ------------------------------------------- */}
         <form className="msg-container-input">
-          <input type="text" name="" id="" placeholder="Message" />
+          <input
+            type="text"
+            name=""
+            id=""
+            placeholder="Message"
+            // onChange={changeHandler}
+          />
           <button className="msg-send-btn">
             <IoSend className="msg-send-btn-icon" />
           </button>

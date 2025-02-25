@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import InputBox from "../components/InputBox";
 import Button from "../components/Butoon";
 
@@ -12,9 +14,14 @@ const WelcomePage = () => {
     { placeholder: "Email", type: "email" },
     { placeholder: "Phone Number", type: "number" },
   ];
+  const navigate = useNavigate();
+  const submitHandler = (evt) => {
+    evt.preventDefault();
+    navigate("/chatpage");
+  };
   return (
     <main className="welcome-page-container">
-      <form className="login-register-container">
+      <form className="login-register-container" onSubmit={submitHandler}>
         {[...Array(2)].map((_, index) => {
           return (
             <div key={index} className={`welcome-decoration${index + 1}`}>
@@ -36,7 +43,7 @@ const WelcomePage = () => {
             );
           })}
         </div>
-        <Button buttonText="Singn Up" />
+        <Button buttonText="Log In" type="submit" />
       </form>
     </main>
   );
