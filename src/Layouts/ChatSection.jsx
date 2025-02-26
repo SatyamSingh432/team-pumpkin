@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 import { IoSend } from "react-icons/io5";
-// import { useState } from "react";
+import { useState } from "react";
 
 import "../styles/ChatSection.css";
 const ChatSection = ({ individualData, setShowProfile }) => {
-  // const [msgSend, setMsgSend] = useState([]);
-  // const [msg, setMsg] = useState("");
+  const [msgSend, setMsgSend] = useState([]);
+  const [msg, setMsg] = useState("");
+
   const iconName = (data) => {
     let arr = data.split(" ");
     let newArr = new Array(2);
@@ -14,10 +15,19 @@ const ChatSection = ({ individualData, setShowProfile }) => {
     }
     return newArr.join("");
   };
-  // const changeHandler = (e) => {
-  //   setMsg(e.target.value);
-  //   // console.log(e.target.value);
-  // };
+
+  const submitHandler = (evt) => {
+    evt.preventDefault();
+    if (msg.trim() === "") return;
+    setMsgSend((prvData) => [...prvData, { message: msg, time: "8:10PM" }]);
+    setMsg("");
+  };
+
+  const changeHandler = (e) => {
+    setMsg(e.target.value);
+    console.log(e.target.value);
+  };
+
   return (
     <div className="chat-sec-container">
       <nav className="chat-sec-nav">
@@ -64,7 +74,8 @@ const ChatSection = ({ individualData, setShowProfile }) => {
               </span>
             </div>
           </div>
-          {/* {msgSend.map((data, index) => {
+
+          {msgSend?.map((data, index) => {
             return (
               <div key={index} className="message-container right">
                 <div className="message-box sender">
@@ -73,18 +84,19 @@ const ChatSection = ({ individualData, setShowProfile }) => {
                 </div>
               </div>
             );
-          })} */}
+          })}
         </div>
         {/* ------------------------------------------- */}
-        <form className="msg-container-input">
+        <form className="msg-container-input" onSubmit={submitHandler}>
           <input
             type="text"
             name=""
             id=""
             placeholder="Message"
-            // onChange={changeHandler}
+            onChange={changeHandler}
+            value={msg}
           />
-          <button className="msg-send-btn">
+          <button className="msg-send-btn" type="submit">
             <IoSend className="msg-send-btn-icon" />
           </button>
         </form>
