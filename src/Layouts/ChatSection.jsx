@@ -19,7 +19,17 @@ const ChatSection = ({ individualData, setShowProfile }) => {
   const submitHandler = (evt) => {
     evt.preventDefault();
     if (msg.trim() === "") return;
-    setMsgSend((prvData) => [...prvData, { message: msg, time: "8:10PM" }]);
+    setMsgSend((prvData) => [
+      ...prvData,
+      {
+        message: msg,
+        time: new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: true,
+        }),
+      },
+    ]);
     setMsg("");
   };
 
