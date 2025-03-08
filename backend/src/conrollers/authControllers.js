@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 
 const register = async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { username, password, email, number } = req.body;
     const existingUser = await User.findOne({ username });
 
     if (existingUser) {
@@ -19,6 +19,8 @@ const register = async (req, res) => {
     //   create new user
     const user = new User({
       username: username,
+      email: email,
+      number: number,
       password: hashedPassword,
     });
 
@@ -26,7 +28,12 @@ const register = async (req, res) => {
     // genrate token
 
     const token = jwt.sign(
-      { id: user._id, username: user.username },
+      {
+        id: user._id,
+        username: user.username,
+        number: user.number,
+        email: user.email,
+      },
       process.env.JWT_TOKEN,
       { expiresIn: "24h" }
     );

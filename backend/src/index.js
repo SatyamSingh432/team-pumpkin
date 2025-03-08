@@ -2,8 +2,11 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import { register } from "./conrollers/authControllers.js";
+import cors from "cors";
+
 let app = express();
 
+app.use(cors());
 dotenv.config();
 app.use(express.json());
 
